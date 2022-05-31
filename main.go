@@ -25,14 +25,12 @@ import (
 	"time"
 
 	"github.com/alecthomas/kingpin"
-	"github.com/dustin/go-broadcast"
 	"github.com/gorilla/websocket"
 	"github.com/openatx/androidutils"
 	"github.com/openatx/atx-agent/cmdctrl"
 	"github.com/openatx/atx-agent/logger"
 	"github.com/openatx/atx-agent/subcmd"
 	"github.com/pkg/errors"
-	"github.com/sevlyar/go-daemon"
 )
 
 var (
@@ -100,7 +98,7 @@ func singleFightNewerWebsocket(handleFunc func(http.ResponseWriter, *http.Reques
 
 		wsConn, err := upgrader.Upgrade(w, r, nil)
 		if err != nil {
-			http.Error(w, "websocket upgrade error", 500)
+			http.Error(w, "websocket upgrade error   ", 500)
 			muxMutex.Unlock()
 			return
 		}
